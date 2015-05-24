@@ -43,3 +43,16 @@ group :development, :test do
   gem 'spring'
 end
 
+group :assets do
+
+end
+
+gem 'devise'
+gem 'slim'
+
+# twitter bootstrap related gems
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
+
+gem 'rails_12factor', group: :production # required for deploying the app in heroku
+gem 'nprogress-rails' # progress bar on the top of the page like google products

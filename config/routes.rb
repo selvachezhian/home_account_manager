@@ -53,4 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+
+  root to: 'users#home'
 end
