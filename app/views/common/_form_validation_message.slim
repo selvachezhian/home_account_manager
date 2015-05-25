@@ -1,0 +1,11 @@
+- obj.errors.any?
+  .row
+    #error_explanation
+      .alert.alert-danger
+        = pluralize(obj.errors.count, 'error')
+        | &nbsp;prohibited this &nbsp;
+        = obj.class.to_s.titleize
+        | &nbsp; from being saved
+      ul
+        - obj.errors.full_messages.each do |msg|
+          li = msg
