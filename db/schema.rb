@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524071133) do
+ActiveRecord::Schema.define(version: 20150529133929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expenditures", force: :cascade do |t|
+    t.string   "name"
+    t.float    "amount"
+    t.text     "description"
+    t.datetime "date"
+    t.integer  "user_id"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "expenditures", ["amount"], name: "index_expenditures_on_amount", using: :btree
+  add_index "expenditures", ["user_id"], name: "index_expenditures_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false

@@ -1,0 +1,17 @@
+.row
+  .col-lg-6
+
+    = form_for(@expenditure, { class: '' }) do |e|
+
+      = render partial: 'common/form_validation_message', locals: { obj: @expenditure }
+
+      .form-group
+        label Name
+        = e.text_field(:name, { class: 'form-control' })
+
+      .form-group
+        label Domain
+        = e.text_field(:amount, { class: 'form-control' })
+
+
+      = e.submit({ class: 'btn btn-info' })
