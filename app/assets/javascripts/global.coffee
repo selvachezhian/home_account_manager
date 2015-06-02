@@ -3,6 +3,7 @@ $(document).on "ready page:load", ->
     $(this).datepicker(
       showWeek: true
       firstDay: 1
-      "option", "showAnim", "blind"
+      showAnim: "blind"
+      dateFormat: "dd/mm/yy"
     )
   )
