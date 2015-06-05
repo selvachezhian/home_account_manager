@@ -1,7 +1,7 @@
 class ExpendituresController < ApplicationController
 
   def index
-    @expenditures = current_user.expenditures.all
+    @expenditures = current_user.expenditures.for_current_month
   end
 
   def new
