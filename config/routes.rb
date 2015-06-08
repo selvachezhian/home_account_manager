@@ -58,5 +58,7 @@ Rails.application.routes.draw do
 
   resources :expenditures
 
+  get 'expenditure/month/:month', to: 'expenditures#month_views', as: 'month_views', constraints: { month: /(?:[1-9])(?:[0][1-9])(?:[1][0-2])/ }
+
   root to: 'users#home'
 end
