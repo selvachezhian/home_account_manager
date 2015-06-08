@@ -1,9 +1,11 @@
-h3 Expenditure for this current month
+h3 = "Expenditure for the month of #{ Time.zone.now.strftime('%B') }"
 
 .row.current-month-header
   = menu_group do
-    | Total Amount&nbsp;
-    = @expenditures.sum(:amount)
+    h4
+      span.label.label-warning
+        | Total Amount&nbsp;
+        = @expenditures.sum(:amount)
   = menu_group pull: :right do
     = link_to 'Add Expenditure', new_expenditure_path, { class: 'btn btn-info' }
 
@@ -15,10 +17,4 @@ table.table.table-responsive.table-striped.table-bordered.table-hover
       th Name
       th Amount
   tbody
-    - i = 0
-    - @expenditures.each do |expenditure|
-      tr
-        td = i = i + 1
-        td = expenditure.date
-        td = expenditure.name
-        td = expenditure.amount
+    = render @expenditures
