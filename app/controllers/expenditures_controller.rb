@@ -1,5 +1,7 @@
 class ExpendituresController < ApplicationController
 
+  before_action :check_month_views_params, only: :month_views
+
   def index
     @expenditures = current_user.expenditures.for_current_month.order(:date, :name, :amount)
   end
@@ -25,6 +27,10 @@ class ExpendituresController < ApplicationController
 
   def expenditure_params
     params.require(:expenditure).permit(:name, :date, :amount)
+  end
+
+  def check_month_views_params
+    redirect_to month_views_path(params[:month].slice(1)), status: :moved_permanently if params[:month].starts_with?('0')
   end
 
 end
