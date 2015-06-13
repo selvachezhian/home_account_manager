@@ -20,7 +20,7 @@ class ExpendituresController < ApplicationController
   end
 
   def month_views
-
+    selected_year = params[:year] || Time.zone.now.year
   end
 
   private
@@ -30,7 +30,7 @@ class ExpendituresController < ApplicationController
   end
 
   def check_month_views_params
-    redirect_to month_views_path(params[:month].slice(1)), status: :moved_permanently if params[:month].starts_with?('0')
+    redirect_to month_views_path(month: params[:month].slice(1), year: (params[:year] || Time.zone.now.year)), status: :moved_permanently if params[:month].starts_with?('0')
   end
 
 end
