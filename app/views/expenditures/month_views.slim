@@ -1,6 +1,8 @@
 .row
-  div
-  = select_month(params[:month].to_i, {}, { class: 'form-control' })
-  = select_year(params[:year].to_i, {}, { class: 'form-control' })
+  .col-lg-4.col-lg-4-offset
+  .col-lg-4
+    = select_month(params[:month].to_i, {}, { class: 'form-control month-year-select' })
+    = select_year(params[:year].to_i, {}, { class: 'form-control month-year-select' })
+  .col-lg-4.col-lg-4-offset
 
 |Month Views

@@ -1,4 +1,18 @@
+body {
+  background: -webkit-linear-gradient(left, #757F9A , #D7DDE8); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #757F9A, #D7DDE8); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #757F9A, #D7DDE8); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #757F9A , #D7DDE8); /* Standard syntax (must be last) */
+}
+
 .current-month-header {
   padding: 5px;
   margin: 5px;
+}
+
+.month-year-select {
+  float: left;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: auto;
 }
