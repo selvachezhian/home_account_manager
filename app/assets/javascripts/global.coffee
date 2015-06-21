@@ -17,3 +17,7 @@ alert_remove = ->
       $(this).remove();
     )
   , 5000)
+
+$(document).on "ready page:load", ->
+  $('#get_expenditure').on 'click', ->
+    alert('working')
