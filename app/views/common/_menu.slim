@@ -1,8 +1,10 @@
+- custom_month_view_highlight = {}
+- custom_month_view_highlight.merge!(status: :active) if params[:controller].eql?('expenditures') && params[:action].eql?('month_views')
 = nav_bar static: :top, brand: 'Home Account Manager', responsive: true, brand_link: root_path, inverse: true do
   = menu_group do
     = menu_item 'Home', expenditures_path
     - current_time = Time.zone.now
-    = menu_item 'Month View', month_views_path(month: current_time.month, year: current_time.year)
+    = menu_item 'Month View', month_views_path(month: current_time.month, year: current_time.year), custom_month_view_highlight
   = menu_group pull: :right do
     - if user_signed_in?
       | Welcome &nbsp;
