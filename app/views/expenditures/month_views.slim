@@ -6,7 +6,11 @@
     = link_to('Get Expenditure', {}, { class: 'btn btn-info', id: 'get_expenditure', href: 'javascript:void(0)' })
   .col-lg-4.col-lg-4-offset
 
-h3 = "Expenditure for the month of #{ Date.new(params[:year].to_i, params[:month].to_i).strftime('%B') }"
+h3 = "Expenditure for the month of #{ Date.new(params[:year].to_i, params[:month].to_i).strftime('%B - %Y') }"
+h4
+  span.label.label-warning
+    | Total Amount&nbsp;
+    = @expenditures.sum(:amount)
 
 table.table.table-responsive.table-striped.table-bordered.table-hover
   thead
