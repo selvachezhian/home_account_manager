@@ -20,4 +20,5 @@ alert_remove = ->
 
 $(document).on "ready page:load", ->
   $('#get_expenditure').on 'click', ->
-    alert('working')
+    path = '/expenditure/month/' + $('#date_month').val() + '/year/' + $('#date_year').val()
+    Turbolinks.visit(path)
