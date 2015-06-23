@@ -1,0 +1,20 @@
+.row
+  .col-lg-4.col-lg-4-offset
+  .col-lg-4
+    = select_year(params[:year].to_i, {}, { class: 'form-control month-year-select' })
+    = link_to('Get Glance', {}, { class: 'btn btn-info', id: 'get_year_glance', href: 'javascript:void(0)' })
+  .col-lg-4.col-lg-4-offset
+
+h3 = "Expenditure Glance for the year #{ Date.new(params[:year].to_i).strftime('%Y') }"
+
+table.table.table-responsive.table-striped.table-bordered.table-hover
+  thead
+    tr.success
+      th Month
+      th Amount
+  tbody
+    - (1..12).each do |month|
+      - this_date = Date.new(params[:year].to_i, month)
+      tr
+        td = this_date.strftime('%B')
+        td = Expenditure.for_selected_month(month, params[:year]).sum(:amount)

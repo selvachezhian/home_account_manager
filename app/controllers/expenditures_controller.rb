@@ -20,8 +20,11 @@ class ExpendituresController < ApplicationController
   end
 
   def month_views
-    selected_year = params[:year] || Time.zone.now.year
     @expenditures = current_user.expenditures.for_selected_month(params[:month], params[:year]).order(:date, :name, :amount)
+  end
+
+  def year_glance
+    
   end
 
   private

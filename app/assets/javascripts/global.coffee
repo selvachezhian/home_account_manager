@@ -22,3 +22,8 @@ $(document).on "ready page:load", ->
   $('#get_expenditure').on 'click', ->
     path = '/expenditure/month/' + $('#date_month').val() + '/year/' + $('#date_year').val()
     Turbolinks.visit(path)
+
+$(document).on "ready page:load", ->
+  $('#get_year_glance').on 'click', ->
+    path = '/expenditure/year_glance/year/'+ $('#date_year').val()
+    Turbolinks.visit(path)
