@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+DefaultExpenditure.transaction do
+
+  %w(Petrol Vegetables EB Water Telephone Inter\ Net Gas Grocery).each do |exp|
+    DefaultExpenditure.create!(name: exp, user_id: 0)
+  end
+
+end

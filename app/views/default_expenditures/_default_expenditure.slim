@@ -1,0 +1,5 @@
+li.list-group-item
+  - if default_expenditure.editable?(current_user)
+    = link_to default_expenditure.name
+  - else
+    = default_expenditure.name

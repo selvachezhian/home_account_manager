@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529133929) do
+ActiveRecord::Schema.define(version: 20150713094032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "default_expenditures", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "default_expenditures", ["user_id"], name: "index_default_expenditures_on_user_id", using: :btree
 
   create_table "expenditures", force: :cascade do |t|
     t.string   "name"
@@ -24,11 +33,13 @@ ActiveRecord::Schema.define(version: 20150529133929) do
     t.integer  "user_id"
     t.integer  "created_by_id"
     t.integer  "updated_by_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "default_expenditure_id"
   end
 
   add_index "expenditures", ["amount"], name: "index_expenditures_on_amount", using: :btree
+  add_index "expenditures", ["default_expenditure_id"], name: "index_expenditures_on_default_expenditure_id", using: :btree
   add_index "expenditures", ["user_id"], name: "index_expenditures_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

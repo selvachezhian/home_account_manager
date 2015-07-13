@@ -6,6 +6,7 @@
     - current_time = Time.zone.now
     = menu_item 'Month View', month_views_path(month: current_time.month, year: current_time.year), custom_month_view_highlight
     = menu_item 'Year Glance', year_glance_path(year: current_time.year)
+    = menu_item 'Manage Defaults', manage_defaults_path
   = menu_group pull: :right do
     - if user_signed_in?
       | Welcome &nbsp;

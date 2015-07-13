@@ -24,7 +24,11 @@ class ExpendituresController < ApplicationController
   end
 
   def year_glance
-    
+
+  end
+
+  def manage_defaults
+    @defaults = DefaultExpenditure.for_current_user(current_user).order(:user_id, :name)
   end
 
   private

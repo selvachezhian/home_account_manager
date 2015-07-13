@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   get 'expenditure/month/:month(/year/:year)', to: 'expenditures#month_views', as: 'month_views', constraints: { month: /(?:[1-9]|[0][1-9]|[1][0-2])/, year: /[0-9]{4,}/ }
   get 'expenditure/year_glance/year/:year', to: 'expenditures#year_glance', as: 'year_glance', constraints: { year: /[0-9]{4,}/ }
+  get 'manage_defaults', to: 'expenditures#manage_defaults', as: 'manage_defaults'
 
   root to: 'users#home'
 end
