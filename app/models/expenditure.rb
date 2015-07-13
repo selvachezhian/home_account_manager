@@ -1,6 +1,6 @@
 class Expenditure < ActiveRecord::Base
 
-  has_many :default_expenditures
+  belongs_to :default_expenditure
   belongs_to :user
 
   validates :name, :date, presence: true

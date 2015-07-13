@@ -1,6 +1,7 @@
 class DefaultExpenditure < ActiveRecord::Base
 
-  belongs_to :expenditure
+  has_many :expenditures
+  belongs_to :user
 
   scope :by_users, ->(user_ids) { where('user_id in (?)', user_ids) }
 
