@@ -7,7 +7,7 @@
 
       .form-group
         label Name
-        = e.text_field(:name, { class: 'form-control' })
+        = e.text_field(:name, { class: 'form-control', required: true, placeholder: 'Name' })
 
       .form-group
         label Date
@@ -15,7 +15,7 @@
 
       .form-group
         label Amount
-        = e.text_field(:amount, { class: 'form-control' })
+        = e.number_field(:amount, { class: 'form-control' })
 
 
       = e.submit({ class: 'btn btn-info' })
