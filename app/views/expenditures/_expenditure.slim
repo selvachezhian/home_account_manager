@@ -1,5 +1,12 @@
 tr class="row-#{expenditure.date.day}"
   td = expenditure_counter + 1
-  td = expenditure.date.strftime('%B %d, %Y')
-  td = expenditure.name
-  td = expenditure.amount
+  td = expenditure.date.strftime('%d %B, %Y')
+  td
+    = expenditure.name
+    span.edit-image
+      = link_to(edit_expenditure_path(expenditure)) do
+        = image_tag('edit.png', title: 'Edit')
+
+      = link_to(expenditure, { method: :delete, data: { confirm: 'Are you sure to remove this expenditure?' } }) do
+        = image_tag('delete.png', size: '16x16', title: 'Delete')
+  td.price = expenditure.amount

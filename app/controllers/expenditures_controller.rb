@@ -19,6 +19,26 @@ class ExpendituresController < ApplicationController
     end
   end
 
+  def edit
+    @expenditure = current_user.expenditures.find(params[:id])
+  end
+
+  def update
+    @expenditure = current_user.expenditures.find(params[:id])
+    if @expenditure.update_attributes(expenditure_params)
+      redirect_to expenditures_path, notice: 'Expenditure altered successfully'
+    else
+      render action: :edit
+    end
+  end
+
+  def destroy
+    @expenditure = current_user.expenditures.find(params[:id])
+    @expenditure.destroy
+
+    redirect_to expenditures_path, notice: 'Expenditure removed successfully'
+  end
+
   def month_views
     @expenditures = current_user.expenditures.for_selected_month(params[:month], params[:year]).order(:date, :name, :amount)
   end
