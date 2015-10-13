@@ -1,12 +1,12 @@
 //$class-slug: row !default
 
 @for $i from 1 through 31 {
-  .row-#{$i}:nth-child(1) {
+  .row-#{$i}:nth-of-type(1) {
     border-top: 2px solid #DA4EEA;
   }
 
 }
 
-.month-row:nth-child(1) {
+.month-row:nth-of-type(1) {
   border-top: none;
 }
