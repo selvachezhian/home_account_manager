@@ -18,3 +18,10 @@ table.table.table-responsive.table-striped.table-bordered.table-hover
       th Amount
   tbody
     = render @expenditures
+
+javascript:
+  counter = 1;
+  while(counter <= 31) {
+    $('.row-' + counter + ':last').css({ 'border-bottom': '2px solid #DA4EEA' });
+    counter = counter + 1;
+  }
