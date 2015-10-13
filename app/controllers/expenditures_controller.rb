@@ -13,7 +13,7 @@ class ExpendituresController < ApplicationController
   def create
     @expenditure = current_user.expenditures.new(expenditure_params)
     if @expenditure.save
-      redirect_to expenditures_path, notice: "#{@expenditure.name} added successfully"
+      redirect_to expenditures_path, notice: 'Expenditure added successfully'
     else
       render action: :new
     end

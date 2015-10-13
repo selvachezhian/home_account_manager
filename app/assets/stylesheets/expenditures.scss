@@ -1,0 +1,9 @@
+//$class-slug: row !default
+
+@for $i from 1 through 31 {
+  .row-#{$i}:nth-last-child(1) {
+    border-bottom: 2px solid #DA4EEA;
+  }
+
+}
+
