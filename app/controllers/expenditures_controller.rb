@@ -1,6 +1,11 @@
+# @author Selva Chezhian
 class ExpendituresController < ApplicationController
 
+  # @!group Callbacks
+
   before_action :check_month_views_params, only: :month_views
+
+  # @!endgroup
 
   def index
     @expenditures = current_user.expenditures.for_current_month.order(:date, :name, :amount)

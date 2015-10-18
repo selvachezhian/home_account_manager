@@ -58,3 +58,6 @@ gem 'twitter-bootstrap-rails'
 
 gem 'rails_12factor', group: :production # required for deploying the app in heroku
 gem 'nprogress-rails' # progress bar on the top of the page like google products
+
+# Ruby documentation tool
+gem 'yard'

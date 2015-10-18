@@ -5,7 +5,7 @@ h3 = "Expenditure for the month of #{ Time.zone.now.strftime('%B - %Y') }"
     h4
       span.label.label-warning
         | Total Amount&nbsp;
-        = @expenditures.sum(:amount)
+        = number_to_currency(@expenditures.sum(:amount))
   = menu_group pull: :right do
     = link_to 'Add', new_expenditure_path, { class: 'btn btn-info' }
 
