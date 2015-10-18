@@ -10,7 +10,7 @@ h3 = "Expenditure for the month of #{ Date.new(params[:year].to_i, params[:month
 h4
   span.label.label-warning
     | Total Amount&nbsp;
-    = @expenditures.sum(:amount)
+    = number_to_currency(@expenditures.sum(:amount), locale: :ta)
 
 table.table.table-responsive.table-striped.table-bordered.table-hover
   thead
