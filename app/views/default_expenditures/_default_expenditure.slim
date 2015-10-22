@@ -1,5 +1,5 @@
 li.list-group-item
   - if default_expenditure.editable?(current_user)
-    = link_to default_expenditure.name
+    = link_to default_expenditure.name, edit_default_expenditure_path(default_expenditure)
   - else
     = default_expenditure.name

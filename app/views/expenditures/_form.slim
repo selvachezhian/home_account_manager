@@ -11,7 +11,7 @@
 
       .form-group
         label Date
-        = e.text_field(:date, { class: 'form-control datepicker', value: @expenditure.date.try(:strftime, '%d/%m/%Y') })
+        = e.text_field(:date, { class: 'form-control datepicker', value: @expenditure.date.try(:strftime, '%d/%m/%Y'), readonly: true })
 
       .form-group
         label Amount

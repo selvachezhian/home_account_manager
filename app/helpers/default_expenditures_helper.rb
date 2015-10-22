@@ -1,0 +1,2 @@
+module DefaultExpendituresHelper
+end

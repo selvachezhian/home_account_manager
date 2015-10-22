@@ -8,7 +8,7 @@
 
 DefaultExpenditure.transaction do
 
-  %w(Petrol Vegetables EB Water Telephone Inter\ Net Gas Grocery).each do |exp|
+  %w(Petrol Vegetables EB Water Telephone Inter\ Net Gas Grocery Milk Food).each do |exp|
     DefaultExpenditure.create!(name: exp, user_id: 0)
   end
 

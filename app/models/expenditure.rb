@@ -28,4 +28,9 @@ class Expenditure < ActiveRecord::Base
     between(selected_date.beginning_of_month, selected_date.end_of_month)
   end
 
+  # Expenditure date and returns current date for new records
+  def date
+    super || Date.today
+  end
+
 end

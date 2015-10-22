@@ -1,7 +1,7 @@
 .row
   .col-lg-6
 
-    = form_for(@default_expenditure, { as: 'defaults', class: '' }) do |e|
+    = form_for(@default_expenditure, { class: '' }) do |e|
 
       = render partial: 'common/form_validation_message', locals: { obj: @default_expenditure }
 
@@ -11,4 +11,4 @@
 
       = e.submit({ class: 'btn btn-info' })
       |&nbsp;&nbsp;
-      = link_to 'Cancel', manage_defaults_path, { class: 'btn btn-danger' }
+      = link_to 'Cancel', default_expenditures_path, { class: 'btn btn-danger' }
