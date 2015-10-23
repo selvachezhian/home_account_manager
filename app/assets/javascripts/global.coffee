@@ -27,3 +27,12 @@ $(document).on "ready page:load", ->
   $('#get_year_glance').on 'click', ->
     path = '/expenditure/year_glance/year/'+ $('#date_year').val()
     Turbolinks.visit(path)
+
+@bootstrap_notify_js = (title, message, type) ->
+  $.notify({
+    icon: 'glyphicon glyphicon-warning-sign'
+    title: title
+    message: message
+  },{
+    type: type
+  });

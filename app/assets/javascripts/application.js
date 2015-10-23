@@ -15,5 +15,7 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require turbolinks
+//= require bootstrap-notify
+//= require bootstrap-notify-config
 //= require global
 //= require_tree .
