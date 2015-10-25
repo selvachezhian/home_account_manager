@@ -17,5 +17,6 @@
 //= require turbolinks
 //= require bootstrap-notify
 //= require bootstrap-notify-config
+//= require jquery.validate.js
 //= require global
 //= require_tree .

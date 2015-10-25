@@ -1,23 +1,30 @@
 .row
   .col-lg-6
 
-    = form_for(@expenditure, { class: '' }) do |e|
+    = form_for(@expenditure, { html: { class: '', id: 'expenditureForm' } }) do |e|
 
       = render partial: 'common/form_validation_message', locals: { obj: @expenditure }
 
       .form-group
         label Name
-        = e.text_field(:name, { class: 'form-control', required: true, placeholder: 'Name' })
+        = e.text_field(:name, { class: 'form-control', required: true, placeholder: 'Name', data: { required: 'value' } })
 
       .form-group
         label Date
-        = e.text_field(:date, { class: 'form-control datepicker', value: @expenditure.date.try(:strftime, '%d/%m/%Y'), readonly: true })
+        = e.text_field(:date, { class: 'form-control datepicker', value: @expenditure.date.try(:strftime, '%d/%m/%Y'), readonly: true, required: true })
 
       .form-group
         label Amount
-        = e.number_field(:amount, { class: 'form-control' })
+        = e.number_field(:amount, { class: 'form-control', required: true })
+
+      .form-group
+        label Type
+        = e.collection_select(:default_expenditure_id, DefaultExpenditure.for_current_user(current_user).order(:user_id, :name), :id, :name, { include_blank: 'Select Type' }, { class: 'form-control', required: true })
 
 
       = e.submit({ class: 'btn btn-info' })
       |&nbsp;&nbsp;
       = link_to 'Cancel', expenditures_path, { class: 'btn btn-danger' }
+
+    javascript:
+      $("#expenditureForm").validate();

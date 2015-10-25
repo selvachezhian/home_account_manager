@@ -4,6 +4,7 @@ class Expenditure < ActiveRecord::Base
   belongs_to :user
 
   validates :name, :date, presence: true
+  validates :default_expenditure_id, presence: { message: "Type can't be blank" }
   validates :amount, presence: true, format: { with: /\A(?:[0-9]+)(?:[0-9]+\.[0-9]+)\z/ }
 
   # Expenditure for specified date range

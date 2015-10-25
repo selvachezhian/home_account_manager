@@ -59,7 +59,7 @@ class ExpendituresController < ApplicationController
   private
 
   def expenditure_params
-    params.require(:expenditure).permit(:name, :date, :amount)
+    params.require(:expenditure).permit(:name, :date, :amount, :default_expenditure_id)
   end
 
   def check_month_views_params
