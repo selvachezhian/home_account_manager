@@ -9,4 +9,5 @@ tr class="row-#{expenditure.date.day}"
 
       = link_to(expenditure, { method: :delete, data: { confirm: 'Are you sure to remove this expenditure?' } }) do
         = image_tag('delete.png', size: '16x16', title: 'Delete')
+  td = expenditure.default_expenditure.try(:name)
   td.price = expenditure.amount
