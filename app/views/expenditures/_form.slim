@@ -27,4 +27,23 @@
       = link_to 'Cancel', expenditures_path, { class: 'btn btn-danger' }
 
     javascript:
-      $("#expenditureForm").validate();
+      $("#expenditureForm").validate({
+        rules: {
+          'expenditure[name]': 'required',
+          'expenditure[amount]': {
+            required: true,
+            number: true,
+            min: 0
+          },
+          'expenditure[default_expenditure_id]': 'required'
+        },
+        messages: {
+          'expenditure[name]': "Expenditure Name can't be blank",
+          'expenditure[amount]': {
+            required: "Amount can't be blank",
+            number: 'Amount should be number',
+            min: 'Amount should be positive'
+          },
+          'expenditure[default_expenditure_id]': "Expenditure type can't be blank"
+        }
+      });
