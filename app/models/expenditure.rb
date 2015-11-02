@@ -11,7 +11,7 @@ class Expenditure < ActiveRecord::Base
   # @param from [Date]
   # @param to [Date]
   # @return [Expenditure]
-  scope :between, ->(from, to) { where('date >= ? AND date <= ?', from, to) }
+  scope :between, ->(from, to) { where('date >= ? AND date <= ?', from.to_datetime.in_time_zone, to.to_datetime.in_time_zone) }
 
   # Expenditure for current month and year
   # @return [Expenditure]
