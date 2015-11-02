@@ -16,7 +16,7 @@ class Expenditure < ActiveRecord::Base
   # Expenditure for current month and year
   # @return [Expenditure]
   def self.for_current_month
-    today = Time.zone.now
+    today = Date.today
     between(today.beginning_of_month, today.end_of_month)
   end
 
