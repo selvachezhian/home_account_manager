@@ -18,5 +18,8 @@
 //= require bootstrap-notify
 //= require bootstrap-notify-config
 //= require jquery.validate.js
+//= require fusioncharts/fusioncharts
+//= require fusioncharts/fusioncharts.charts
+//= require fusioncharts/themes/fusioncharts.theme.fint
 //= require global
 //= require_tree .

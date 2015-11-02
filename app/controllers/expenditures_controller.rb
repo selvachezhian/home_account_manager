@@ -8,7 +8,7 @@ class ExpendituresController < ApplicationController
   # @!endgroup
 
   def index
-    @expenditures = current_user.expenditures.for_current_month.order(:date, :name, :amount)
+    @expenditures = current_user.expenditures.includes(:default_expenditure).for_current_month.order(:date, :name, :amount)
   end
 
   def new
@@ -45,7 +45,7 @@ class ExpendituresController < ApplicationController
   end
 
   def month_views
-    @expenditures = current_user.expenditures.for_selected_month(params[:month], params[:year]).order(:date, :name, :amount)
+    @expenditures = current_user.expenditures.includes(:default_expenditure).for_selected_month(params[:month], params[:year]).order(:date, :name, :amount)
   end
 
   def year_glance

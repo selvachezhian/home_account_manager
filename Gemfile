@@ -61,3 +61,6 @@ gem 'nprogress-rails' # progress bar on the top of the page like google products
 
 # Ruby documentation tool
 gem 'yard'
+
+# Fusioncharts rails implementation
+gem 'fusioncharts-rails'
