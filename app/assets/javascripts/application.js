@@ -21,5 +21,14 @@
 //= require fusioncharts/fusioncharts
 //= require fusioncharts/fusioncharts.charts
 //= require fusioncharts/themes/fusioncharts.theme.fint
+//= require nprogress
+//= require nprogress-turbolinks
+//= require nprogress-ajax
 //= require global
 //= require_tree .
+
+NProgress.configure({
+    showSpinner: true,
+    ease: 'ease',
+    speed: 500
+});
