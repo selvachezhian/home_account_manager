@@ -11,12 +11,12 @@ class Expenditure < ActiveRecord::Base
   # @param from [Date]
   # @param to [Date]
   # @return [Expenditure]
-  scope :between, ->(from, to) { where('date >= ? AND date <= ?', from.to_datetime.in_time_zone, to.to_datetime.in_time_zone) }
+  scope :between, ->(from, to) { where(date: from..to) }
 
   # Expenditure for current month and year
   # @return [Expenditure]
   def self.for_current_month
-    today = Date.today
+    today = Time.zone.now
     between(today.beginning_of_month, today.end_of_month)
   end
 
@@ -25,7 +25,7 @@ class Expenditure < ActiveRecord::Base
   # @param year [Integer] which year the month needs to be selected
   # @return [Expenditure]
   def self.for_selected_month(month, year)
-    selected_date = Date.new(year.to_i, month.to_i)
+    selected_date = Date.new(year.to_i, month.to_i).to_datetime.in_time_zone
     between(selected_date.beginning_of_month, selected_date.end_of_month)
   end
 
