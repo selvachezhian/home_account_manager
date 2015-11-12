@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713094032) do
+ActiveRecord::Schema.define(version: 20151112102203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,25 @@ ActiveRecord::Schema.define(version: 20150713094032) do
   add_index "expenditures", ["amount"], name: "index_expenditures_on_amount", using: :btree
   add_index "expenditures", ["default_expenditure_id"], name: "index_expenditures_on_default_expenditure_id", using: :btree
   add_index "expenditures", ["user_id"], name: "index_expenditures_on_user_id", using: :btree
+
+  create_table "secret_values", force: :cascade do |t|
+    t.integer  "secret_id"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "secret_values", ["secret_id"], name: "index_secret_values_on_secret_id", using: :btree
+
+  create_table "secrets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "secrets", ["user_id"], name: "index_secrets_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false

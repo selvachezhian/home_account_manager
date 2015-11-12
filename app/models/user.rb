@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :expenditures
   has_many :default_expenditures
+  has_many :secrets
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

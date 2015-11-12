@@ -7,6 +7,7 @@
     = menu_item 'Month View', month_views_path(month: current_time.month, year: current_time.year), custom_month_view_highlight
     = menu_item 'Year Glance', year_glance_path(year: current_time.year)
     = menu_item 'Manage Defaults', default_expenditures_path
+    = menu_item 'My Secrets', secrets_path
   = menu_group pull: :right do
     - if user_signed_in?
       | Welcome &nbsp;
