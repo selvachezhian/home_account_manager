@@ -20,6 +20,10 @@ table.table.table-responsive.table-striped.table-bordered.table-hover
   tbody
     = render @expenditures
 
+.row.current-month-header
+  = menu_group pull: :right do
+    = link_to 'Add', new_expenditure_path, { class: 'btn btn-info' }
+
 javascript:
   counter = 1;
   while(counter <= 31) {
