@@ -19,7 +19,7 @@
 
       .form-group
         label Type
-        = e.collection_select(:default_expenditure_id, DefaultExpenditure.for_current_user(current_user).order(:user_id, :name), :id, :name, { include_blank: 'Select Type' }, { class: 'form-control', required: true })
+        = e.collection_select(:default_expenditure_id, DefaultExpenditure.for_current_user(current_user).order(:name, :user_id), :id, :name, { include_blank: 'Select Type' }, { class: 'form-control', required: true })
 
 
       = e.submit({ class: 'btn btn-info' })
