@@ -1,7 +1,7 @@
 class Utilities::Crypto
 
   def initialize
-    @crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
+    @crypt = ActiveSupport::MessageEncryptor.new(CRYPTO_SECRET_KEY)
   end
 
   def encrypt(str)

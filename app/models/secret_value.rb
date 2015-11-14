@@ -1,6 +1,6 @@
 class SecretValue < ActiveRecord::Base
 
-  belongs_to :secret
+  belongs_to :secret, counter_cache: true
 
   %w(key value).each do |attr|
     crypto = Utilities::Crypto.new
