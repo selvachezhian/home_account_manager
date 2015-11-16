@@ -24,6 +24,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require nprogress-ajax
+//= require secrets
 //= require global
 //= require_tree .
 

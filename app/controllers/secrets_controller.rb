@@ -35,6 +35,10 @@ class SecretsController < ApplicationController
 
   end
 
+  def add_new_value
+
+  end
+
   private
 
   def secret_params

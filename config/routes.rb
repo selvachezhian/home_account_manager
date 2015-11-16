@@ -56,7 +56,17 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-  resources :expenditures, :default_expenditures, :secrets
+  resources :expenditures, :default_expenditures
+
+  resources :secrets do
+    collection do
+      get 'add_new_value'
+      get 'edit_value'
+
+      post 'create_new_value'
+      post 'update_value'
+    end
+  end
 
   get 'expenditure/month/:month(/year/:year)', to: 'expenditures#month_views', as: 'month_views', constraints: { month: /(?:[1-9]|[0][1-9]|[1][0-2])/, year: /[0-9]{4,}/ }
   get 'expenditure/year_glance/year/:year', to: 'expenditures#year_glance', as: 'year_glance', constraints: { year: /[0-9]{4,}/ }
