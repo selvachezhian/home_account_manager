@@ -1,6 +1,6 @@
 class SecretsController < ApplicationController
 
-  before_action :get_secret, only: [:edit, :update, :manage_values]
+  before_action :get_secret, only: [:edit, :update, :manage_values, :add_new_value]
 
   def index
     @secrets = current_user.secrets
@@ -36,7 +36,7 @@ class SecretsController < ApplicationController
   end
 
   def add_new_value
-
+    @secret_value = @secret.secret_values.new
   end
 
   private
