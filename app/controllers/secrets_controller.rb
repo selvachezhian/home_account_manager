@@ -37,6 +37,7 @@ class SecretsController < ApplicationController
 
   def add_new_value
     @secret_value = @secret.secret_values.new
+    render layout: false
   end
 
   private

@@ -9,6 +9,8 @@ $(document).on "ready page:load", ->
       data:
       	id: secret_id
       success: (data) ->
-        ('#secret_values > tbody:last-child').append(data);
+        $('#secrets_add_new_value').attr('disabled', 'disabled')
+        $('#secrets_save_value').removeAttr('disabled')
+        $('#secret_values > tbody:last-child').append(data)
     )
     
