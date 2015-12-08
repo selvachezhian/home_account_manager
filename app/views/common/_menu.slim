@@ -11,6 +11,5 @@
     = menu_item 'My Secrets', secrets_path, custom_my_secret_highlight
   = menu_group pull: :right do
     - if user_signed_in?
-      | Welcome &nbsp;
-      = current_user.email
-      = link_to '&nbsp;Sign out'.html_safe, destroy_user_session_path, method: :delete
+      = content_tag(:span, current_user.email, { class: 'user-name' })
+      = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'sign-out'
