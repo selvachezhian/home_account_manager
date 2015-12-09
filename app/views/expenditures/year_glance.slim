@@ -17,4 +17,4 @@ table.table.table-responsive.table-striped.table-bordered.table-hover
       - this_date = Date.new(params[:year].to_i, month)
       tr
         td = this_date.strftime('%B')
-        td = current_user.expenditures.for_selected_month(month, params[:year]).sum(:amount)
+        td = number_to_currency(current_user.expenditures.for_selected_month(month, params[:year]).sum(:amount), locale: :ta)
