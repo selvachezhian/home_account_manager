@@ -6,12 +6,12 @@
       = render partial: 'common/form_validation_message', locals: { obj: @expenditure }
 
       .form-group
-        label Name
-        = e.text_field(:name, { class: 'form-control', required: true, placeholder: 'Name', data: { required: 'value' } })
+        label Date
+        = e.text_field(:date, {class: 'form-control datepicker', value: @expenditure.date.try(:strftime, '%d/%m/%Y'), readonly: true, required: true})
 
       .form-group
-        label Date
-        = e.text_field(:date, { class: 'form-control datepicker', value: @expenditure.date.try(:strftime, '%d/%m/%Y'), readonly: true, required: true })
+        label Name
+        = e.text_field(:name, { class: 'form-control', required: true, placeholder: 'Name', data: { required: 'value' } })
 
       .form-group
         label Amount
