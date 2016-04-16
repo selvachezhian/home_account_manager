@@ -67,3 +67,6 @@ gem 'yard'
 
 # Fusioncharts rails implementation
 gem 'fusioncharts-rails'
+
+gem 'rubocop', '~> 0.39.0', require: false
+gem 'ruby-lint'
