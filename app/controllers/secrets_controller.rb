@@ -1,5 +1,10 @@
+# :nodoc:
 class SecretsController < ApplicationController
-  before_action :get_secret, only: [:edit, :update, :manage_values, :add_new_value]
+  before_action :set_secret, only: [:edit,
+                                    :update,
+                                    :manage_values,
+                                    :add_new_value
+  ].freeze
 
   def index
     @secrets = current_user.secrets
@@ -43,9 +48,10 @@ class SecretsController < ApplicationController
     params.require(:secret).permit(:name)
   end
 
-  def get_secret
+  def set_secret
     @secret = current_user.secrets.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to secrets_path, alert: "Couldn't find any valid secrets for you.  Please try again."
+    alert_msg = "Couldn't find any valid secrets for you.  Please try again."
+    redirect_to secrets_path, alert: alert_msg
   end
 end

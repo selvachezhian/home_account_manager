@@ -7,7 +7,11 @@ class ExpendituresController < ApplicationController
   # @!endgroup
 
   def index
-    @expenditures = current_user.expenditures.includes(:default_expenditure).for_current_month.order(:date, :name, :amount)
+    @expenditures = current_user
+                    .expenditures
+                    .includes(:default_expenditure)
+                    .for_current_month
+                    .order(:date, :name, :amount)
   end
 
   def new
@@ -44,23 +48,37 @@ class ExpendituresController < ApplicationController
   end
 
   def month_views
-    @expenditures = current_user.expenditures.includes(:default_expenditure).for_selected_month(params[:month], params[:year]).order(:date, :name, :amount)
+    @expenditures = current_user
+                    .expenditures
+                    .includes(:default_expenditure)
+                    .for_selected_month(params[:month],
+                                        params[:year])
+                    .order(:date, :name, :amount)
   end
 
   def year_glance
   end
 
   def manage_defaults
-    @defaults = DefaultExpenditure.for_current_user(current_user).order(:user_id, :name)
+    @defaults = DefaultExpenditure
+                .for_current_user(current_user)
+                .order(:user_id, :name)
   end
 
   private
 
   def expenditure_params
-    params.require(:expenditure).permit(:name, :date, :amount, :default_expenditure_id)
+    params.require(:expenditure).permit(:name,
+                                        :date,
+                                        :amount,
+                                        :default_expenditure_id)
   end
 
   def check_month_views_params
-    redirect_to month_views_path(month: params[:month].slice(1), year: (params[:year] || Time.zone.now.year)), status: :moved_permanently if params[:month].starts_with?('0')
+    if params[:month].starts_with?('0')
+      redirect_to month_views_path(month: params[:month].slice(1),
+                                   year: (params[:year] || Time.zone.now.year)),
+                  status: :moved_permanently
+    end
   end
 end

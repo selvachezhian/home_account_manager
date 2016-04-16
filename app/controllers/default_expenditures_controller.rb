@@ -1,9 +1,14 @@
+# :nodoc:
 class DefaultExpendituresController < ApplicationController
-  before_action :find_default_expenditure, only: [:edit, :update]
-  before_action :editable?, only: [:edit, :update]
+  before_action :find_default_expenditure,
+                only: [:edit, :update].freeze
+  before_action :editable?,
+                only: [:edit, :update].freeze
 
   def index
-    @default_expenditures = DefaultExpenditure.for_current_user(current_user).order(:user_id, :name)
+    @default_expenditures = DefaultExpenditure
+                            .for_current_user(current_user)
+                            .order(:user_id, :name)
   end
 
   def new
@@ -11,7 +16,9 @@ class DefaultExpendituresController < ApplicationController
   end
 
   def create
-    @default_expenditure = current_user.default_expenditures.new(default_expenditure_params)
+    @default_expenditure = current_user
+                           .default_expenditures
+                           .new(default_expenditure_params)
     if @default_expenditure.save
       redirect_to default_expenditures_path, notice: 'Type added successfully'
     else
@@ -39,12 +46,15 @@ class DefaultExpendituresController < ApplicationController
   def find_default_expenditure
     @default_expenditure = current_user.default_expenditures.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to default_expenditures_path, alert: 'You don\'t have sufficient privileges to edit this type'
+    redirect_to default_expenditures_path,
+                alert: 'You don\'t have sufficient privileges to edit this type'
   end
 
   def editable?
     unless @default_expenditure.editable?(current_user)
-      redirect_to default_expenditures_path, alert: 'You don\'t have sufficient privileges to edit this type'
+      alert_message = 'You don\'t have sufficient privileges to edit this type'
+      redirect_to default_expenditures_path,
+                  alert: alert_message
     end
   end
 end

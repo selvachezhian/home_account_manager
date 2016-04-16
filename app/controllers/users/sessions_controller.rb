@@ -1,3 +1,4 @@
+# :nodoc:
 class Users::SessionsController < Devise::SessionsController
   layout 'before_login', only: [:new]
 
