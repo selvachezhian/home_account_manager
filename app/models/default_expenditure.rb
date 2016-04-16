@@ -1,5 +1,5 @@
+# :nodoc:
 class DefaultExpenditure < ActiveRecord::Base
-
   has_many :expenditures
   belongs_to :user
 
@@ -12,5 +12,4 @@ class DefaultExpenditure < ActiveRecord::Base
   def editable?(user)
     user_id == user.id
   end
-
 end

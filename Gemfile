@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -49,14 +48,13 @@ group :development, :test do
 end
 
 group :assets do
-
 end
 
 gem 'devise'
 gem 'slim'
 
 # twitter bootstrap related gems
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'less-rails' # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
 
 gem 'rails_12factor', group: :production # required for deploying the app in heroku

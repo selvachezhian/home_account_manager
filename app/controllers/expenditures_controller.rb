@@ -1,6 +1,5 @@
 # @author Selva Chezhian
 class ExpendituresController < ApplicationController
-
   # @!group Callbacks
 
   before_action :check_month_views_params, only: :month_views
@@ -49,7 +48,6 @@ class ExpendituresController < ApplicationController
   end
 
   def year_glance
-
   end
 
   def manage_defaults
@@ -65,5 +63,4 @@ class ExpendituresController < ApplicationController
   def check_month_views_params
     redirect_to month_views_path(month: params[:month].slice(1), year: (params[:year] || Time.zone.now.year)), status: :moved_permanently if params[:month].starts_with?('0')
   end
-
 end

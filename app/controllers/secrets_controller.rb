@@ -1,5 +1,4 @@
 class SecretsController < ApplicationController
-
   before_action :get_secret, only: [:edit, :update, :manage_values, :add_new_value]
 
   def index
@@ -20,7 +19,6 @@ class SecretsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -32,7 +30,6 @@ class SecretsController < ApplicationController
   end
 
   def manage_values
-
   end
 
   def add_new_value
@@ -47,11 +44,8 @@ class SecretsController < ApplicationController
   end
 
   def get_secret
-    begin
-      @secret = current_user.secrets.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to secrets_path, alert: "Couldn't find any valid secrets for you.  Please try again."
-    end
+    @secret = current_user.secrets.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to secrets_path, alert: "Couldn't find any valid secrets for you.  Please try again."
   end
-
 end

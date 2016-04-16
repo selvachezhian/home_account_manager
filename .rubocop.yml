@@ -29,6 +29,11 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'config/environments/*.rb'
+    - 'config/application.rb'
+    - 'config/unicorn.rb'
+    - 'config/initializers/*.rb'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior

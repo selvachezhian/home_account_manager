@@ -1,5 +1,4 @@
 class DefaultExpendituresController < ApplicationController
-
   before_action :find_default_expenditure, only: [:edit, :update]
   before_action :editable?, only: [:edit, :update]
 
@@ -21,7 +20,6 @@ class DefaultExpendituresController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -39,11 +37,9 @@ class DefaultExpendituresController < ApplicationController
   end
 
   def find_default_expenditure
-    begin
     @default_expenditure = current_user.default_expenditures.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to default_expenditures_path, alert: 'You don\'t have sufficient privileges to edit this type'
-    end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to default_expenditures_path, alert: 'You don\'t have sufficient privileges to edit this type'
   end
 
   def editable?
@@ -51,5 +47,4 @@ class DefaultExpendituresController < ApplicationController
       redirect_to default_expenditures_path, alert: 'You don\'t have sufficient privileges to edit this type'
     end
   end
-
 end
