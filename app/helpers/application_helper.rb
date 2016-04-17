@@ -14,7 +14,7 @@ module ApplicationHelper
 
       next unless ALERT_TYPES.include?(type)
 
-      flash_messages << flash_message(message)
+      flash_messages << flash_message(message, type)
     end
     flash_messages.join("\n").html_safe
   end
@@ -27,7 +27,7 @@ module ApplicationHelper
     type
   end
 
-  def flash_message(message)
+  def flash_message(message, type)
     messages = Array(message).map do |msg|
       text = "<script type='text/javascript'>"
       text += "bootstrap_notify_js('', '#{msg}', '#{type}');"
