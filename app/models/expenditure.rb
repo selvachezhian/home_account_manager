@@ -8,7 +8,7 @@ class Expenditure < ActiveRecord::Base
             presence: { message: "Type can't be blank" }
   validates :amount,
             presence: true,
-            format: { with: /\A(?:[0-9]+)(?:[0-9]+\.[0-9]+)\z/ }
+            format: { with: /\A(?:[0-9])+(?:\.[0-9]{1,2}){0,1}\z/ }
 
   # Expenditure for specified date range
   # @param from [Date]
