@@ -3,7 +3,7 @@ class Expenditure < ActiveRecord::Base
   belongs_to :default_expenditure
   belongs_to :user
 
-  # TODO unable to write test for validate date
+  # TODO: unable to write test for validate date
   # because current date is as default date for new record
   validates :name, :date, presence: true
   validates :default_expenditure_id,
