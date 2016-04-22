@@ -1,5 +1,10 @@
 # :nodoc:
 class Expenditure < ActiveRecord::Base
+  def initialize(attributes = nil, options = {})
+    super(attributes, options)
+    self.date = Date.today
+  end
+
   belongs_to :default_expenditure
   belongs_to :user
 
@@ -32,10 +37,5 @@ class Expenditure < ActiveRecord::Base
   def self.for_selected_month(month, year)
     selected_date = Date.new(year.to_i, month.to_i).to_datetime.in_time_zone
     between(selected_date.beginning_of_month, selected_date.end_of_month)
-  end
-
-  # Expenditure date and returns current date for new records
-  def date
-    super || Date.today
   end
 end
