@@ -2,7 +2,7 @@
 class Expenditure < ActiveRecord::Base
   def initialize(attributes = nil, options = {})
     super(attributes, options)
-    self.date = self.date || Date.today
+    self.date ||= Date.today
   end
 
   belongs_to :default_expenditure
