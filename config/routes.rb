@@ -63,7 +63,7 @@ Rails.application.routes.draw do
       get 'add_new_value'
       get 'edit_value'
 
-      post 'create_new_value'
+      post 'create_value'
       post 'update_value'
     end
   end

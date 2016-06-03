@@ -3,7 +3,9 @@ class SecretsController < ApplicationController
   before_action :set_secret, only: [:edit,
                                     :update,
                                     :manage_values,
-                                    :add_new_value
+                                    :add_new_value,
+                                    :create_value,
+                                    :update_value
   ].freeze
 
   def index
@@ -42,10 +44,28 @@ class SecretsController < ApplicationController
     render layout: false
   end
 
+  def create_value
+    @secret_value = @secret.secret_values.new(secret_value_params)
+    if @secret_value.save
+      render partial: 'secret_value',
+             locals: { secret_value: @secret_value },
+             status: :created
+    else
+      render nothing: true, status: :internal_server_error
+    end
+  end
+
+  def update_value
+  end
+
   private
 
   def secret_params
     params.require(:secret).permit(:name)
+  end
+
+  def secret_value_params
+    params.require(:secret).permit(:key, :value)
   end
 
   def set_secret

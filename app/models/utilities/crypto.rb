@@ -12,6 +12,8 @@ class Utilities
 
     def decrypt(enc_str)
       @crypt.decrypt_and_verify(enc_str)
+    rescue ActiveSupport::MessageVerifier::InvalidSignature
+      nil
     end
   end
 end
