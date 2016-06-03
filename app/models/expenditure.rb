@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: expenditures
+#
+#  id                     :integer          not null, primary key
+#  name                   :string
+#  amount                 :float
+#  description            :text
+#  date                   :datetime
+#  user_id                :integer
+#  created_by_id          :integer
+#  updated_by_id          :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  default_expenditure_id :integer
+#
+# Indexes
+#
+#  index_expenditures_on_amount                  (amount)
+#  index_expenditures_on_default_expenditure_id  (default_expenditure_id)
+#  index_expenditures_on_user_id                 (user_id)
+#
+
 # :nodoc:
 class Expenditure < ActiveRecord::Base
   def initialize(attributes = nil, options = {})
