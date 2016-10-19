@@ -44,3 +44,5 @@ exclude_paths:
 - spec/
 - vendor/
 - app/assets/javascripts/jquery-ui.js
+- app/assets/javascripts/jquery.validate.js
+- app/assets/javascripts/bootstrap-notify.js
